@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lnag="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>ごみ箱まっぷ♡</title>
+        <link rel="stylesheet" href="display_map.css">
+        <script src="display_map.js"></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.css">
+    </head>
+    
+    <body>
+        <header class="header">
+            <h1>ごみ箱まっぷ♡</h1>
+            <a href="#" onclick="history.back(); return false;"><h3>Select Language</h3></a>
+        </header>
+
+        <main class="main">
+            <div class="select">
+                <select multiple>
+                    <option value="1">燃えるゴミ</option>
+                    <option value="2">燃えないゴミ</option>
+                    <option value="3">ペットボトル</option>
+                    <option value="4">カン</option>
+                    <option value="5">ビン</option>
+                    <option value="6">紙</option>
+                </select>
+                <script>
+                    $(function (){
+                        $('select').multipleSelect({
+                            width:200,
+                            formatSelectAll:function(){
+                                return 'すべて';
+                            },
+                            formatAllSelected:function(){
+                                return 'すべて選択されています';
+                            }
+                        });
+                    });
+                </script>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <h6>Team 梅ねり</h6>
+        </footer>
+    </body>
+</html>
