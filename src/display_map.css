@@ -1,0 +1,20 @@
+header{
+    border: solid 2px #67c5ff;
+    text-align: center;
+    padding: 5px 0;
+    font-family:'SimSun';
+}
+
+.select {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 画面の高さいっぱいに表示 */
+}
+
+footer{
+    text-align: center;
+    padding:5px 0;
+    font-family:'SimSun';
+    border-top: solid 2px #67c5ff;
+}
