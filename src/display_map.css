@@ -5,11 +5,18 @@ header{
     font-family:'SimSun';
 }
 
+#Google_map{
+    height:100vh;
+    text-align: center;
+    margin:0 auto;
+}
+
 .select {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* 画面の高さいっぱいに表示 */
+    padding-top:5px;
+    padding-bottom:5px;
 }
 
 footer{
