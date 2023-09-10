@@ -3,8 +3,16 @@ header{
     text-align: center;
     padding: 5px 0;
     height:100px;
-    /* margin: 0px; */
+    margin: 0px;
     font-family:'SimSun';
+}
+
+h1{
+    margin:0;
+}
+
+.block_botton{
+    margin-bottom:0;
 }
 
 .button{
@@ -15,11 +23,12 @@ header{
     font-size:0.4em;
     font-family:'SimSun';
     text-align: center;
+    margin:0;
   }
   
   .block{
     display:block;
-    width:80px;
+    width: 200px;
     text-align: center;
     margin:0 auto;
   }
