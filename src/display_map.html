@@ -28,6 +28,7 @@
             <script type="text/javascript">
                 var map;
                 var marker = [];
+                var infoWindow = [];
                 var markerdata = [
                     {
                         lat: 34.64099547,
@@ -47,40 +48,50 @@
                     }
                 ];
                 function initMap() {
-                    //function success(pos) {
-                        // var lat = pos.coords.latitude;
-                        // var lng = pos.coords.longitude;
-                        // var lat = 34.64099547;
-                        // var lng = 136.12729531;
-                        var mapLatLng = new google.maps.LatLng({
-                            lat: markerdata[0]['lat'], lng: markerdata[0]['lng']
-                        });
-                        map = new google.maps.Map(document.getElementById("Google_map"), {
-                            zoom: 15,
-                            center: mapLatLng
-                        });
-                        for (var i = 0; i < markerdata.length; i++) {
-                            markerLatLng = new google.maps.LatLng({
-                                lat: markerdata[i]['lat'], lng: markerdata[i]['lng']
-                            });
-                            marker[i] = new google.maps.Marker({
-                                position: markerLatLng,
-                                map: map
-                            });
-                            //markerEvent(i);
-                        };
+                    // var lat = pos.coords.latitude;
+                    // var lng = pos.coords.longitude;
+                    var mapLatLng = new google.maps.LatLng({
+                        lat: markerdata[0]['lat'], lng: markerdata[0]['lng']
+                    });
+                    map = new google.maps.Map(document.getElementById("Google_map"), {
+                        zoom: 15,
+                        center: mapLatLng
+                    });
 
-                    }
-                    function fail(error) {
-                        alert('位置情報の取得に失敗しました。エラーコード:' + error.code);
-                        var latlng = new google.maps.LatLng(35.6812405, 139.7649361);
-                        var map = new google.maps.Map(document.getElementById('maps'), {
-                            zoom: 10,
-                            center: latlng
+                    for (var i = 0; i < markerdata.length; i++) {
+                        markerLatLng = new google.maps.LatLng({
+                            lat: markerdata[i]['lat'], lng: markerdata[i]['lng']
                         });
-                    }
-                    navigator.geolocation.getCurrentPosition(success, fail);
-                //}
+                        marker[i] = new google.maps.Marker({
+                            position: markerLatLng,
+                            map: map
+                        });
+
+                        infoWindow[i] = new google.maps.InfoWindow({
+                            content:'<div class="Google_map">' + markerdata[i]['lat'] + '<br>' + markerdata[i]['lng'] + '</div>'
+                        });
+
+                        markerEvent(i);
+                    };
+
+                }
+
+                function markerEvent(i) {
+                    marker[i].addListener('click', function () {
+                        infoWindow[i].open(map, marker[i]);
+                    });
+                }
+
+                function fail(error) {
+                    alert('位置情報の取得に失敗しました。エラーコード:' + error.code);
+                    var latlng = new google.maps.LatLng(35.6812405, 139.7649361);
+                    var map = new google.maps.Map(document.getElementById('maps'), {
+                        zoom: 10,
+                        center: latlng
+                    });
+                }
+                navigator.geolocation.getCurrentPosition(success, fail);
+
             </script>
 
             <script
