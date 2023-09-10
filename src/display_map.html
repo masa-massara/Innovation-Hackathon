@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lnag="ja">
+<<<<<<< HEAD
 
 <head>
     <meta charset="utf-8">
@@ -14,6 +15,58 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.css">
 </head>
+=======
+    <head>
+        <meta charset="utf-8">
+        <title>ごみ箱まっぷ♡</title>
+        <link rel="stylesheet" href="display_map.css">
+        <script src="display_map.js"></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.css">
+    </head>
+    
+    <body>
+        <header class="header">
+                <h1>ごみ箱まっぷ♡</h1>
+                <a class="block button" href="./select_langage.html">select language</a>      
+              
+        </header>
+        <br>
+
+        <main class="main">
+            <div id="Google_map">
+                <script type="text/javascript">
+                    function initMap(){
+                        function success(pos){
+                            var lat = pos.coords.latitude;
+                            var lng = pos.coords.longitude;
+                            var latlng = new google.maps.LatLng(lat,lng);
+                            var map = new google.maps.Map(document.getElementById("Google_map"),{
+                                zoom: 15,
+                                center: latlng
+                            });
+                        var marker = new google.maps.Marker({
+                            position:latlng,
+                            map:map
+                        });
+                    }
+                    function fail(error){
+                        alert('位置情報の取得に失敗しました。エラーコード:' + error.code);
+                        var latlng = new google.maps.LatLng(35.6812405, 139.7649361);
+                        var map = new google.maps.Map(document.getElementById('Google_map'),{
+                            zoom:10,
+                            center:latlng
+                        });
+                    }
+                    navigator.geolocation.getCurrentPosition(success,fail);
+                }
+                </script>
+>>>>>>> main
 
 <body>
     <header class="header">
