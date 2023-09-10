@@ -15,11 +15,12 @@ header{
     font-family:sans-serif;
     margin:0 auto;
   }
-  
   .block{
     display:block;
-    width:150px;
+    width:300px;
     margin:0 auto;
+    text-align: center;
+
   }
 
 footer{
