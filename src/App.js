@@ -1,26 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import "./App.css";
+import db from "./firebase";
+import { collection, getDocs } from "firebase/firestore";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>pullできてる！</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [dustbox, setPosts] = useState([]);
+
+  useEffect(() => {
+    const postData = collection(db, "dustbox");
+    getDocs(postData).then((snapShot) => {
+      //console.log(snapShot.docs.map((doc) => ({ ...doc.data() })));
+      setPosts(snapShot.docs.map((doc) => ({ ...doc.data() })));
+    });
+  }, []);
+
+  return <div className="App">
+    {dustbox.map((post)=>(
+      <div>
+        <h1>{post.home.latitude}</h1>
+        <h1>{post.home.longitude}</h1>
+      </div>
+    ))}
+  </div>;
 }
 
 export default App;
