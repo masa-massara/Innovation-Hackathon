@@ -4,7 +4,7 @@ import db from "./firebase";
 import { collection, getDocs } from "firebase/firestore";
 
 
-function App() {
+export default function App() {
   const [dustbox, setPosts] = useState([]);
 
   useEffect(() => {
@@ -15,14 +15,15 @@ function App() {
     });
   }, []);
 
-  return <div className="App">
+  return (
+  <div className="App">
     {dustbox.map((post)=>(
       <div>
         <h1>{post.home.latitude}</h1>
         <h1>{post.home.longitude}</h1>
       </div>
     ))}
-  </div>;
+  </div>);
 }
 
-export default App;
+// export default App;
