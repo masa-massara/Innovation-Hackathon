@@ -2,31 +2,11 @@ header{
     border: solid 2px #67c5ff;
     text-align: center;
     padding: 5px 0;
-    height:100px;
-    /* margin: 0px; */
     font-family:'SimSun';
 }
 
-.button{
-    background:white;
-    padding:2em 2em;
-    text-decoration:none;
-    color:black;
-    font-size:0.4em;
-    font-family:'SimSun';
-    text-align: center;
-  }
-  
-  .block{
-    display:block;
-    width:80px;
-    text-align: center;
-    margin:0 auto;
-  }
-
 #Google_map{
-    width: 100%;
-    height:500px;
+    height:100vh;
     text-align: center;
     margin:0 auto;
 }
