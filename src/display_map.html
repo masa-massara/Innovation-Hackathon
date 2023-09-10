@@ -16,11 +16,45 @@
     
     <body>
         <header class="header">
-            <h1>ごみ箱まっぷ♡</h1>
-            <a href="./select_langage.html"><h3>Select Language</h3></a>
+                <h1>ごみ箱まっぷ♡</h1>
+                <a class="block button" href="./select_langage.html">select language</a>      
+              
         </header>
+        <br>
 
         <main class="main">
+            <div id="Google_map">
+                <script type="text/javascript">
+                    function initMap(){
+                        function success(pos){
+                            var lat = pos.coords.latitude;
+                            var lng = pos.coords.longitude;
+                            var latlng = new google.maps.LatLng(lat,lng);
+                            var map = new google.maps.Map(document.getElementById("Google_map"),{
+                                zoom: 15,
+                                center: latlng
+                            });
+                        var marker = new google.maps.Marker({
+                            position:latlng,
+                            map:map
+                        });
+                    }
+                    function fail(error){
+                        alert('位置情報の取得に失敗しました。エラーコード:' + error.code);
+                        var latlng = new google.maps.LatLng(35.6812405, 139.7649361);
+                        var map = new google.maps.Map(document.getElementById('Google_map'),{
+                            zoom:10,
+                            center:latlng
+                        });
+                    }
+                    navigator.geolocation.getCurrentPosition(success,fail);
+                }
+                </script>
+
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjXc0hy_MMUL5PKthuOZp-NOlEUwFIaSs&callback=initMap" async defer>
+                </script>
+                
+            </div>
             <div class="select">
                 <select multiple>
                     <option value="1">燃えるゴミ</option>
@@ -33,7 +67,7 @@
                 <script>
                     $(function (){
                         $('select').multipleSelect({
-                            width:200,
+                            width:1000,
                             formatSelectAll:function(){
                                 return 'すべて';
                             },
