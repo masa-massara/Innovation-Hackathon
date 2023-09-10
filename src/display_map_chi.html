@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lnag="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>ごみ箱まっぷ♡</title>
+    <link rel="stylesheet" href="display_map.css">
+    <script src="display_map.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <h1>ごみ箱まっぷ♡</h1>
+        <a href="./select_langage.html">
+            <h3>Select Language</h3>
+        </a>
+    </header>
+
+    <main class="main">
+        <div id="Google_map">
+            <script type="text/javascript">
+                var map;
+                var marker = [];
+                var infoWindow = [];
+                var markerdata = [
+                    {
+                        lat: 34.64099547,
+                        lng: 136.12729531
+                    },
+                    {
+                        lat: 35.64099547,
+                        lng: 136.12729531
+                    },
+                    {
+                        lat: 34.64099547,
+                        lng: 137.12729531
+                    },
+                    {
+                        lat: 35.64099547,
+                        lng: 137.12729531
+                    }
+                ];
+                function initMap() {
+                    // var lat = pos.coords.latitude;
+                    // var lng = pos.coords.longitude;
+                    var mapLatLng = new google.maps.LatLng({
+                        lat: markerdata[0]['lat'], lng: markerdata[0]['lng']
+                    });
+                    map = new google.maps.Map(document.getElementById("Google_map"), {
+                        zoom: 15,
+                        center: mapLatLng
+                    });
+
+                    for (var i = 0; i < markerdata.length; i++) {
+                        markerLatLng = new google.maps.LatLng({
+                            lat: markerdata[i]['lat'], lng: markerdata[i]['lng']
+                        });
+                        marker[i] = new google.maps.Marker({
+                            position: markerLatLng,
+                            map: map
+                        });
+
+                        infoWindow[i] = new google.maps.InfoWindow({
+                            content:'<div class="Google_map">' + markerdata[i]['lat'] + '<br>' + markerdata[i]['lng'] + '</div>'
+                        });
+
+                        markerEvent(i);
+                    };
+
+                }
+
+                function markerEvent(i) {
+                    marker[i].addListener('click', function () {
+                        infoWindow[i].open(map, marker[i]);
+                    });
+                }
+
+                function fail(error) {
+                    alert('获取位置信息失败。 错误代码： + error.code);
+                    var latlng = new google.maps.LatLng(35.6812405, 139.7649361);
+                    var map = new google.maps.Map(document.getElementById('maps'), {
+                        zoom: 10,
+                        center: latlng
+                    });
+                }
+                navigator.geolocation.getCurrentPosition(success, fail);
+
+            </script>
+
+            <script
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjXc0hy_MMUL5PKthuOZp-NOlEUwFIaSs&callback=initMap"
+                async defer>
+                </script>
+
+        </div>
+        <div class="select">
+            <select multiple>
+                <option value="1">可燃垃圾</option>
+                <option value="2">不燃垃圾</option>
+                <option value="3">聚酯瓶</option>
+                <option value="4">空罐头</option>
+                <option value="5">瓶子</option>
+                <option value="6">纸</option>
+            </select>
+            <script>
+                $(function () {
+                    $('select').multipleSelect({
+                        width: 1000,
+                        formatSelectAll: function () {
+                            return '全部';
+                        },
+                        formatAllSelected: function () {
+                            return '全部选中';
+                        }
+                    });
+                });
+            </script>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <h6>Team 梅ねり</h6>
+    </footer>
+</body>
+
+</html>
