@@ -1,75 +1,49 @@
 <!DOCTYPE html>
 <html lang="ja">
-
-<head>
-    <meta charset="UTF-8">
-    <title>言語選択</title>
-</head>
+    <head>
+        <meta charset="utf-8">
+        <title>ごみ箱まっぷ♡</title>
+        <link rel="stylesheet" href="select_language.css">
+        <script src="select_language.js"></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.css">
+    </head>
 
 <body>
-    <style>
-        .btn-frat-border {
-            display: inline-block;
-            text-align: center;
-            font-size: 2rem;
-            width: 400px;
-            padding: 30px;
-            margin-top: 50px;
-            text-decoration: none;
-            color: #67c5ff;
-            border: solid 2px #67c5ff;
-            border-radius: 3px;
-            transition: .4s;
-        }
-
-        .btn-flat-border:hover {
-            background: #67c5ff;
-            color: white;
-        }
-
-        @media screen and (max-width:400px) {
-            .btn-frat-border {
-
-                display: inline-block;
-                text-align: center;
-                font-size: 2rem;
-                width: 250px;
-                padding: 30px;
-                margin-top: 50px;
-                text-decoration: none;
-                color: #67c5ff;
-                border: solid 2px #67c5ff;
-                border-radius: 3px;
-                transition: .4s;
-            }
-
-            .btn-flat-border:hover {
-                background: #67c5ff;
-                color: white;
-            }
-        }
-    </style>
-    <style>
-        .btn-group {
-            text-align: center;
-        }
-    </style>
-    <div class="btn-group">
+    <header class="header">
+        <h1>ごみ箱まっぷ♡
+        <img src="rogo.jpg" alt="" width="80" height="80"></h1>
+    </header>
+    <br>
+    
         <meta name="viewport" content="width=device-width,initial-scale=1">
 
-        <div class="btn-frat-border">
-            <a href="#" class="btn-flat-border">English</a>
-        </div><br>
+        <div class="area">
+            <a class="block button" href="./display_map_en.html">English</a>
+          </div>
+          <br>
 
-        <div class="btn-frat-border">
-            <a href="#" class="btn-flat-border">日本語</a>
-        </div><br>
+          <div class="area">
+            <a class="block button" href="./display_map.html">日本語</a>
+          </div>
+          <br>
 
-        <div class="btn-frat-border">
-            <a href="#" class="btn-flat-border">中国語</a>
-        </div><br>
+          <div class="area">
+            <a class="block button" href="#">中文</a>
+          </div>
+          <br>
 
-    </div>
+    <footer class="footer">
+        <h6>Team 梅ねり</h6>
+    </footer>
+
+
+
 
 </body>
 

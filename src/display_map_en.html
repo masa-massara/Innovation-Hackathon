@@ -16,11 +16,12 @@
     
     <body>
         <header class="header">
-                <h1>ごみ箱まっぷ♡</h1>
-                <a class="block button" href="./select_langage.html">select language</a>      
-              
+            <div class="area">
+                <a class="block button" href="./select_langage.html">ごみ箱まっぷ♡</a>
+              </div>
         </header>
         <br>
+
 
         <main class="main">
             <div id="Google_map">
@@ -40,9 +41,9 @@
                         });
                     }
                     function fail(error){
-                        alert('位置情報の取得に失敗しました。エラーコード:' + error.code);
+                        alert('Failed to obtain location information. Error code:' + error.code);
                         var latlng = new google.maps.LatLng(35.6812405, 139.7649361);
-                        var map = new google.maps.Map(document.getElementById('Google_map'),{
+                        var map = new google.maps.Map(document.getElementById('maps'),{
                             zoom:10,
                             center:latlng
                         });
@@ -57,22 +58,22 @@
             </div>
             <div class="select">
                 <select multiple>
-                    <option value="1">燃えるゴミ</option>
-                    <option value="2">燃えないゴミ</option>
-                    <option value="3">ペットボトル</option>
-                    <option value="4">カン</option>
-                    <option value="5">ビン</option>
-                    <option value="6">紙</option>
+                    <option value="1">Combustible garbage</option>
+                    <option value="2">Incombustible garbage</option>
+                    <option value="3">PET bottles</option>
+                    <option value="4">Can</option>
+                    <option value="5">Jar</option>
+                    <option value="6">Paper</option>
                 </select>
                 <script>
                     $(function (){
                         $('select').multipleSelect({
                             width:1000,
                             formatSelectAll:function(){
-                                return 'すべて';
+                                return 'All';
                             },
                             formatAllSelected:function(){
-                                return 'すべて選択されています';
+                                return 'All are selected';
                             }
                         });
                     });
